@@ -1,0 +1,12 @@
+<div>
+    <div>
+        <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent" [config]="config">
+        </angular-editor>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" type="button" (click)="save()">
+            <mat-icon>save</mat-icon>
+            <span>Save</span>
+        </button>
+    </div>
+</div>

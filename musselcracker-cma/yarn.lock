@@ -169,7 +169,7 @@
     "symbol-observable" "4.0.0"
     "uuid" "8.3.2"
 
-"@angular/common@^11 || ^12 || ^13", "@angular/common@^13.0.0 || ^14.0.0-0", "@angular/common@~13.0.0", "@angular/common@13.0.3":
+"@angular/common@^11 || ^12 || ^13", "@angular/common@^13.0.0 || ^14.0.0-0", "@angular/common@>=13 <14", "@angular/common@~13.0.0", "@angular/common@13.0.3":
   "integrity" "sha512-xxQIQD5rWWHafKRPCgvkWvy53b+QkbJ9yAf3qYTp0gXZJMg/Cx3Ylc8LA2o1kyVJxCI/amXf5k4rr1S9yU7zxw=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-13.0.3.tgz"
   "version" "13.0.3"
@@ -200,7 +200,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^11 || ^12 || ^13", "@angular/core@^13.0.0 || ^14.0.0-0", "@angular/core@~13.0.0", "@angular/core@13.0.3":
+"@angular/core@^11 || ^12 || ^13", "@angular/core@^13.0.0 || ^14.0.0-0", "@angular/core@>=13 <14", "@angular/core@~13.0.0", "@angular/core@13.0.3":
   "integrity" "sha512-w8FngZBPrLw9kHftYy824C/wSBtLKCWvGU04qI6V9BCpxedf7cyOIhOzaL+4Pz/rwgvo+0Qn2uM1ssZ2+JUdvQ=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-13.0.3.tgz"
   "version" "13.0.3"
@@ -1308,6 +1308,13 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
+
+"@kolkov/angular-editor@^2.0.0":
+  "integrity" "sha512-61Kxfd5LCiX8NmuT78o4VipaL5mfgKcd6bh5KRbMAMMBrmXH1ANRBeoalfjnd2G9MWVMxV5LBSrMrNp5mXERjA=="
+  "resolved" "https://registry.npmjs.org/@kolkov/angular-editor/-/angular-editor-2.0.0.tgz"
+  "version" "2.0.0"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "@ngtools/webpack@13.0.4":
   "integrity" "sha512-kH0kYOQvbv6SnVdcdi21AbJo17H1HSGlCy/8C1ujLdgtT6enKMnx9onYIoZSmb5U98GqYc+DV/W0HwpHwRcOoQ=="

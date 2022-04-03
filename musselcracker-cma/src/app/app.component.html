@@ -1,2 +1,17 @@
-<app-home></app-home>
-<router-outlet></router-outlet>11
+<mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>CMA</span>
+
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item (click)="home()">
+            <span>Home</span>
+        </button>
+        <button mat-menu-item (click)="editor()">
+            <span>Editor</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
