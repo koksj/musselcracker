@@ -1,2 +1,2 @@
-# musselcracker
+# Musselcracker
 Content management system
