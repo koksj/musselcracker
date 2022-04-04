@@ -22,4 +22,5 @@ public class HeadlessResource {
 
         return Response.ok(about).build();
     }
+
 }
