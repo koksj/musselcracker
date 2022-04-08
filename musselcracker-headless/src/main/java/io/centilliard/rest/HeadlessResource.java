@@ -1,5 +1,7 @@
 package io.centilliard.rest;
 
+import java.time.LocalDate;
+
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.GET;
@@ -7,6 +9,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import io.centilliard.dto.Content;
+import io.centilliard.dto.ContentDto;
 
 @Path("/v1")
 public class HeadlessResource {
@@ -21,6 +26,34 @@ public class HeadlessResource {
                 .build();
 
         return Response.ok(about).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/content")
+    public Response getContent() {
+
+        String htmlString = """
+                <html>
+                  <header></header>
+                  <body>
+                  </body>
+                </html>
+                    """;
+
+        /**
+         * BiFunction<String, String, ContentDto> biFunction = (title, subTitle) -> new
+         * ContentDto(title, subTitle);
+         * ContentDto contentDto = biFunction.apply("arg0", "arg1");
+         * contentDto.setHtml(htmlString);
+         */
+
+        Content content = (title, subTitle, createDate, modifyDate, publishDate, html) -> new ContentDto(title,
+                subTitle, createDate, modifyDate, publishDate, html);
+
+        ContentDto contentDto = content.getContentDto("Title", "Sub Title", LocalDate.now(), LocalDate.now(), LocalDate.now(), htmlString);
+
+        return Response.ok(contentDto).build();
     }
 
 }
