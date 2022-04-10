@@ -1,24 +1,24 @@
 package io.centilliard.service;
 
-import java.util.List;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import io.centilliard.entity.ContentDao;
 import io.centilliard.entity.ContentEntity;
+import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.Uni;
 
 @ApplicationScoped
 public class DataService {
 
     @Inject ContentDao contentDao;
 
-    public void save(ContentEntity contentEntity) {
-        contentDao.update(contentEntity);
+    public Uni<Void> save(ContentEntity contentEntity) {
+        return contentDao.update(contentEntity);
     }
 
-    public List<ContentEntity> getAll() {
-        return contentDao.findAll().all();
+    public Multi<ContentEntity> getAll() {
+        return contentDao.findAll();
     }
     
 }
