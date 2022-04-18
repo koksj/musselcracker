@@ -1,16 +1,37 @@
+/**
+ * Authors:
+ *     Stefan Kok 
+ * 
+ * Copyright (C) 2020 Sefan Kok. All Rights Reserved.
+ * 
+ * This file is part of Musselcracker.
+ * 
+ * Musselcracker is free software; you can redistribute it and/or modify it under the terms of the 
+ * GNU General Public License as published by the Free Software Foundation; version 2.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+ * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * 
+ */
+
 package io.centilliard.dto;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class ContentDto {
 
+    private UUID id;
     private String title;
     private String subTitle;
     private LocalDate createDate;
     private LocalDate modifyDate;
     private LocalDate publishDate;
     private String html;
-    
+
     public ContentDto() {
 
     }
@@ -20,8 +41,10 @@ public class ContentDto {
         this.subTitle = subTitle;
     }
 
-    public ContentDto(String title, String subTitle, LocalDate createDate, LocalDate modifyDate, LocalDate publishDate,
+    public ContentDto(UUID id, String title, String subTitle, LocalDate createDate, LocalDate modifyDate,
+            LocalDate publishDate,
             String html) {
+        this.id = id;
         this.title = title;
         this.subTitle = subTitle;
         this.createDate = createDate;
@@ -76,6 +99,14 @@ public class ContentDto {
 
     public void setHtml(String html) {
         this.html = html;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
 }

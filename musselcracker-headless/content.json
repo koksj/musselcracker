@@ -1,0 +1,8 @@
+{
+    "title": "Arrays",
+    "subTitle": "ArrayList",
+    "createDate": "2022-04-18",
+    "modifyDate": "2022-04-18",
+    "publishDate": "2022-04-18",
+    "html": "<p>List<String> list = new ArrayList<>();</p>"
+  }
