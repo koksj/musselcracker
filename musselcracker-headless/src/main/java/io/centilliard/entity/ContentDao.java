@@ -23,6 +23,7 @@ import java.util.UUID;
 
 import com.datastax.oss.driver.api.mapper.annotations.Dao;
 import com.datastax.oss.driver.api.mapper.annotations.Delete;
+import com.datastax.oss.driver.api.mapper.annotations.Insert;
 import com.datastax.oss.driver.api.mapper.annotations.Select;
 import com.datastax.oss.driver.api.mapper.annotations.Update;
 import com.datastax.oss.quarkus.runtime.api.reactive.mapper.MutinyMappedReactiveResultSet;
@@ -37,6 +38,9 @@ public interface ContentDao {
 
     @Update
     Uni<Void> update(Content content);
+
+    @Insert
+    Uni<Void> save(Content content);
     
     @Select
     MutinyMappedReactiveResultSet<Content> findAll();

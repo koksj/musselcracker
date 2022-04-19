@@ -97,7 +97,7 @@ public class HeadlessResource {
     @Path("/content")
     public Uni<Void> update(ContentDto contentDto) {
 
-        return dataService.save(convertToEntity(contentDto));
+        return dataService.update(convertToEntity(contentDto));
     }
 
     @POST

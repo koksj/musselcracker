@@ -40,6 +40,10 @@ public class DataService {
     @Inject ContentDao contentDao;
 
     public Uni<Void> save(Content contentEntity) {
+        return contentDao.save(contentEntity);
+    }
+
+    public Uni<Void> update(Content contentEntity) {
         return contentDao.update(contentEntity);
     }
 
