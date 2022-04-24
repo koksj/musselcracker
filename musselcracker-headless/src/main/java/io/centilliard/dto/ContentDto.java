@@ -22,13 +22,18 @@ package io.centilliard.dto;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import javax.json.bind.annotation.JsonbDateFormat;
+
 public class ContentDto {
 
     private UUID id;
     private String title;
     private String subTitle;
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private LocalDate createDate;
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private LocalDate modifyDate;
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private LocalDate publishDate;
     private String html;
 
@@ -42,7 +47,7 @@ public class ContentDto {
     }
 
     public ContentDto(UUID id, String title, String subTitle, LocalDate createDate, LocalDate modifyDate,
-            LocalDate publishDate,
+    LocalDate publishDate,
             String html) {
         this.id = id;
         this.title = title;

@@ -106,8 +106,6 @@ public class HeadlessResource {
     @Path("/content")
     public Uni<Void> add(ContentDto contentDto) {
 
-        log.info(contentDto.getHtml());
-
         return dataService.save(convertToEntity(contentDto));
     }
 

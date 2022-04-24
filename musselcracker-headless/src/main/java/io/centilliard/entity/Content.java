@@ -22,6 +22,8 @@ package io.centilliard.entity;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import javax.json.bind.annotation.JsonbDateFormat;
+
 import com.datastax.oss.driver.api.mapper.annotations.Entity;
 import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
 import com.datastax.oss.driver.api.mapper.annotations.PropertyStrategy;
@@ -34,14 +36,17 @@ public class Content {
     private UUID id;
     private String title;
     private String subTitle;
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private LocalDate createDate;
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private LocalDate modifyDate;
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private LocalDate publishDate;
     private String html;
 
     
     public Content(UUID id, String title, String subTitle, LocalDate createDate, LocalDate modifyDate,
-            LocalDate publishDate, String html) {
+    LocalDate publishDate, String html) {
         this.id = id;
         this.title = title;
         this.subTitle = subTitle;

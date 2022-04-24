@@ -42,6 +42,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from "@angular/material-moment-adapter";
 
 @NgModule({
   exports: [
@@ -61,6 +62,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatChipsModule,
     MatStepperModule,
     MatDatepickerModule,
+    MatMomentDateModule,
+    MatNativeDateModule,    
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,

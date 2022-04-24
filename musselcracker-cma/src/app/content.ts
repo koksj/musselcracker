@@ -1,4 +1,11 @@
 export interface Content {
 
-    content: string
+    //id: string;
+    title: string;
+    subTitle: string;
+    createDate: string;
+    modifyDate: string;
+    publishDate: string;
+    html: string;
+
 }

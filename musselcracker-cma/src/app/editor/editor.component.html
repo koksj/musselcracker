@@ -1,12 +1,71 @@
 <div>
-    <div>
-        <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent" [config]="config">
-        </angular-editor>
-    </div>
-    <div>
-        <button mat-raised-button color="primary" type="button" (click)="save()">
-            <mat-icon>save</mat-icon>
-            <span>Save</span>
-        </button>
-    </div>
+    <form [formGroup]="formGroup">
+
+        <div>
+
+            <div>
+                <mat-form-field class="editor-form-field" appearance="fill">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" formControlName="title">
+                </mat-form-field>
+
+                <mat-form-field class="editor-form-field" appearance="fill">
+                    <mat-label>Create date</mat-label>
+                    <input matInput [matDatepicker]="create_picker" formControlName="createDate">
+                    <mat-hint>YYYY/MM/DD</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="create_picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #create_picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="editor-form-field" appearance="fill">
+                    <mat-label>Modify date</mat-label>
+                    <input matInput [matDatepicker]="modify_picker" formControlName="modifyDate">
+                    <mat-hint>YYYY/MM/DD</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="modify_picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #modify_picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="editor-form-field" appearance="fill">
+                    <mat-label>Publish date</mat-label>
+                    <input matInput [matDatepicker]="publish_picker" formControlName="publishDate">
+                    <mat-hint>YYYY/MM/DD</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="publish_picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #publish_picker></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+            <div>
+                <mat-form-field class="editor-form-field" appearance="fill">
+                    <mat-label>Sub Title</mat-label>
+                    <input matInput type="text" formControlName="subTitle">
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div>
+            <angular-editor [placeholder]="'Enter text here...'" formControlName="html" [config]="config">
+            </angular-editor>
+        </div>
+
+        <div>
+            <hr>
+        </div>
+        
+        <div>
+            <button mat-raised-button color="primary" type="button" (click)="save()"
+                [disabled]="!formGroup.dirty || !formGroup.valid">
+                <mat-icon>save</mat-icon>
+                <span>Save</span>
+            </button>
+        </div>
+
+    </form>
 </div>

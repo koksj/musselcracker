@@ -1,7 +1,7 @@
 # Musselcracker
 Content management system
 
-### Musselcracker Headless
+# Musselcracker Headless
 
 ### Musselcracker Content Management Application (CMA)
 
@@ -15,3 +15,5 @@ podman run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin
 
 ### Podman & Casandra
 podman run -p 9042:9042 --name cass_cluster cassandra:latest
+
+podman exec -it cass_cluster cqlsh

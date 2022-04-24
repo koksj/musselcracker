@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { Content } from '../content';
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,8 +9,6 @@ import { DataService } from '../data.service';
   styleUrls: ['./editor.component.sass']
 })
 export class EditorComponent implements OnInit {
-
-  htmlContent = '';
 
   config: AngularEditorConfig = {
     editable: true,
@@ -23,7 +21,7 @@ export class EditorComponent implements OnInit {
     defaultFontName: 'Arial',
     toolbarHiddenButtons: [
       ['bold']
-      ],
+    ],
     customClasses: [
       {
         name: "quote",
@@ -41,6 +39,15 @@ export class EditorComponent implements OnInit {
     ]
   };
 
+  formGroup: FormGroup = new FormGroup({
+    title: new FormControl({ disabled: false, value: '' }, [Validators.required]),
+    subTitle: new FormControl({ disabled: false, value: '' }, [Validators.required]),
+    createDate: new FormControl({ disabled: false, value: new Date }, [Validators.required]),
+    modifyDate: new FormControl({ disabled: false, value: new Date }, [Validators.required]),
+    publishDate: new FormControl({ disabled: false, value: new Date }, [Validators.required]),
+    html: new FormControl({ disabled: false, value: '' }, [Validators.required])
+  });
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -48,8 +55,9 @@ export class EditorComponent implements OnInit {
 
   public save(): void {
 
-    let page: Content = { content: this.htmlContent}
-    alert(JSON.stringify(page));
+    if (this.formGroup.valid) {
+      this.dataService.saveContent(this.formGroup.value).subscribe();
+    }
 
   }
 
